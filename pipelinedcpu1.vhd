@@ -294,6 +294,7 @@ port(
      -- Instructions
      Ins2016In      : in STD_LOGIC_VECTOR(4 downto 0);
      Ins1511In      : in STD_LOGIC_VECTOR(4 downto 0);
+     Ins2521In      : in STD_LOGIC_VECTOR(4 downto 0);
      -- Signal for WB and MEM
      WBsigOut       : out STD_LOGIC_VECTOR(1 downto 0):="00";
      MsigOut        : out STD_LOGIC_VECTOR(2 downto 0):="000";
@@ -310,7 +311,8 @@ port(
      extendedOut    : out STD_LOGIC_VECTOR(31 downto 0):=x"00000000";
     
      Ins2016Out     : out STD_LOGIC_VECTOR(4 downto 0):="00000";
-     Ins1511Out     : out STD_LOGIC_VECTOR(4 downto 0):="00000"
+     Ins1511Out     : out STD_LOGIC_VECTOR(4 downto 0):="00000";
+     Ins2521Out     : out STD_LOGIC_VECTOR(4 downto 0):="00000"
 );
 end component;
 
@@ -481,7 +483,7 @@ U19: ForwardUnit port map(EXMEMregWrite,RegWriteWB,WriteRegMEM,Ins2521EX,Ins2016
 
 
 
-U20: EXMEMReg port map(clk,rst,'1',PCadd4EX,WBsigEX,MsigEX,BranchAddrEX,ALUzeroEX,ALUResEX,ReadData2EX,WriteRegEX,PCadd4MEM,WBsigMEM,BranchMEM,MemtoRegMEM,MemWriteMEM,BranchAddrMEM,zeroMEM,ALUResMEM,ReadData2MEM,WriteRegMEM);
+U20: EXMEMReg port map(clk,rst,'1',PCadd4EX,WBsigEX,MsigEX,BranchAddrEX,ALUzeroEX,ALUResEX,ALUinB,WriteRegEX,PCadd4MEM,WBsigMEM,BranchMEM,MemtoRegMEM,MemWriteMEM,BranchAddrMEM,zeroMEM,ALUResMEM,ReadData2MEM,WriteRegMEM);
 
 
 -- MEM
